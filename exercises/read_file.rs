@@ -6,8 +6,7 @@ use std::io::{self, Read};
 use std::path::Path;
 
 fn read_file(filename: String) -> Result<String, std::io::Error> {
-    let path = Path::new(&filename);
-    let mut file = File::open(&path)?;
+    let mut file = File::open(Path::new(&filename))?;
     let mut contents = String::new();
     file.read_to_string(&mut contents)?;
     Ok(contents)
